@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Volume2, VolumeX } from "lucide-react";
 import Image from "next/image";
 import { useCursor } from "@/context/CursorContext";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { setCursor, resetCursor } = useCursor();
+  const [ambientAudioActive, setAmbientAudioActive] = useState(false);
 
   // Mouse parallax motion values
   const mouseX = useSpring(0, { damping: 30, stiffness: 200 });
@@ -33,6 +34,47 @@ export default function HeroSection() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.88]);
   const productRotate = useTransform(scrollYProgress, [0, 1], [0, 12]);
+
+  // Audio ambience synthesis simulation
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const oscillatorRef = useRef<OscillatorNode | null>(null);
+
+  const toggleAmbience = () => {
+    if (!ambientAudioActive) {
+      if (typeof window !== "undefined" && ("AudioContext" in window || "webkitAudioContext" in window)) {
+        try {
+          const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+          const ctx = new AudioContextClass();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(220, ctx.currentTime); // Soft warm A3 frequency
+          gain.gain.setValueAtTime(0.015, ctx.currentTime);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+
+          audioContextRef.current = ctx;
+          oscillatorRef.current = osc;
+        } catch (e) {
+          // Audio synthesis fallback
+        }
+      }
+      setAmbientAudioActive(true);
+    } else {
+      if (oscillatorRef.current) {
+        try {
+          oscillatorRef.current.stop();
+        } catch (e) {}
+      }
+      if (audioContextRef.current) {
+        audioContextRef.current.close();
+      }
+      setAmbientAudioActive(false);
+    }
+  };
 
   // Canvas floating cocoa particles effect
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -127,6 +169,27 @@ export default function HeroSection() {
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cocoa/20 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-caramel/15 rounded-full blur-[160px] pointer-events-none" />
 
+      {/* Interactive Savor Audio Ambience Toggle */}
+      <motion.button
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1 }}
+        onClick={toggleAmbience}
+        className="fixed top-24 right-6 z-30 hidden lg:flex items-center space-x-2 bg-dark-choc/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-champagne/20 text-champagne text-[10px] uppercase tracking-widest hover:border-champagne transition-all"
+      >
+        {ambientAudioActive ? (
+          <>
+            <Volume2 className="w-3.5 h-3.5 text-caramel animate-pulse" />
+            <span>Atelier Ambience Active</span>
+          </>
+        ) : (
+          <>
+            <VolumeX className="w-3.5 h-3.5 text-cream/40" />
+            <span>Enable Atelier Sound Ambience</span>
+          </>
+        )}
+      </motion.button>
+
       <motion.div
         style={{ opacity: heroOpacity, y: heroY }}
         className="max-w-7xl mx-auto px-6 md:px-12 w-full z-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
@@ -175,7 +238,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="pt-4"
+            className="pt-4 flex flex-wrap gap-4"
           >
             <a
               href="#collection"

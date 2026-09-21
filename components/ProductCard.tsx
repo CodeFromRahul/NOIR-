@@ -48,9 +48,12 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative flex flex-col justify-between glass-card rounded-2xl p-5 border border-champagne/10 hover:border-champagne/40 transition-all duration-500 hover:shadow-[0_25px_50px_rgba(0,0,0,0.7)]"
+      className="group relative flex flex-col justify-between glass-card rounded-2xl p-5 border border-champagne/10 hover:border-champagne/40 transition-all duration-500 hover:shadow-[0_25px_50px_rgba(0,0,0,0.7)] overflow-hidden"
     >
-      {/* Cacao Tag */}
+      {/* Micro Gold Foil Shine Overlay */}
+      <div className="absolute -inset-full top-0 block bg-gradient-to-r from-transparent via-champagne/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:translate-x-full transition-all duration-1000 ease-in-out pointer-events-none" />
+
+      {/* Cacao Tag & Origin */}
       <div className="flex justify-between items-center z-10 mb-4">
         <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-caramel border border-caramel/30 bg-espresso/80 px-3 py-1 rounded-full backdrop-blur-md">
           {product.cacao} Cacao
@@ -82,7 +85,7 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
               e.stopPropagation();
               onOpenDetails(product);
             }}
-            className="w-full py-3 rounded-full bg-champagne/90 text-espresso font-medium text-xs uppercase tracking-[0.2em] shadow-lg flex items-center justify-center space-x-2 hover:bg-cream transition-colors"
+            className="w-full py-3 rounded-full bg-champagne/90 text-espresso font-medium text-xs uppercase tracking-[0.2em] shadow-lg flex items-center justify-center space-x-2 hover:bg-cream transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 cursor-pointer"
           >
             <Eye className="w-4 h-4" />
             <span>Storyline & Recipe →</span>
@@ -104,6 +107,13 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
           </span>
         </div>
 
+        {/* Classic Ornament Line */}
+        <div className="flex items-center space-x-2 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-champagne/50 to-transparent" />
+          <span className="text-[10px] text-caramel">❦</span>
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-champagne/50 to-transparent" />
+        </div>
+
         <p className="text-xs text-cream/65 font-light leading-relaxed line-clamp-2">
           {product.desc}
         </p>
@@ -119,7 +129,7 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
           {product.tastingNotes.slice(0, 3).map((note) => (
             <span
               key={note}
-              className="text-[9px] uppercase tracking-widest text-cream/60 bg-cocoa/30 px-2 py-0.5 rounded border border-champagne/10"
+              className="text-[9px] uppercase tracking-widest text-cream/60 bg-cocoa/30 px-2 py-0.5 rounded border border-champagne/10 group-hover:border-champagne/30 transition-colors"
             >
               {note}
             </span>
@@ -135,7 +145,7 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
             onClick={() => addToCart(product)}
             onMouseEnter={() => setCursor("add")}
             onMouseLeave={resetCursor}
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-champagne/30 bg-espresso/80 text-cream text-[11px] uppercase tracking-widest font-medium hover:bg-caramel hover:text-espresso hover:border-caramel transition-all duration-300 shadow-md group/btn"
+            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-champagne/30 bg-espresso/80 text-cream text-[11px] uppercase tracking-widest font-medium hover:bg-caramel hover:text-espresso hover:border-caramel transition-all duration-300 shadow-md group/btn cursor-pointer"
           >
             <Plus className="w-3.5 h-3.5 text-champagne group-hover/btn:text-espresso transition-colors" />
             <span>Add to Bag</span>

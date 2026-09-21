@@ -15,11 +15,10 @@ export async function POST(req: NextRequest) {
     }
 
     const defaultSystemInstruction =
-      "You are the Maison NOIRÉ Master Chocolatier, Cacao Sommelier & Confectionery Scientist. You respond with dark luxury elegance, deep culinary expertise, and precise temperature/flavor insights. Keep responses polished, sensual, and engaging.";
+      "You are the Maison NOIRÉ Chief Master Chocolatier, Cacao Scientist, and Culinary Sommelier in Paris. Respond in an ultra-luxurious, sensual, poetic, and highly knowledgeable tone. When asked about recipes, provide exact cacao percentages, tempering temperatures (Melt 48°C, Seed 27°C, Work 31.5°C), equipment needed, and wine/spirit pairing suggestions.";
 
     const instructions = systemPrompt || defaultSystemInstruction;
 
-    // Try primary specified model, fallback to gemini-1.5-flash if model name differs
     let apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     const requestBody = {
@@ -33,9 +32,9 @@ export async function POST(req: NextRequest) {
         parts: [{ text: instructions }],
       },
       generationConfig: {
-        temperature: 0.7,
+        temperature: 0.75,
         topP: 0.95,
-        maxOutputTokens: 1000,
+        maxOutputTokens: 1200,
       },
     };
 
@@ -48,7 +47,6 @@ export async function POST(req: NextRequest) {
     });
 
     if (!response.ok) {
-      // Fallback try with gemini-1.5-flash if 2.5-flash alias requires v1beta
       const fallbackUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
       response = await fetch(fallbackUrl, {
         method: "POST",
@@ -71,7 +69,7 @@ export async function POST(req: NextRequest) {
     const data = await response.json();
     const candidateText =
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "Our master chocolatiers are preparing your answer with care.";
+      "Our master chocolatiers are preparing your sensory answer with care.";
 
     return NextResponse.json({
       text: candidateText,
