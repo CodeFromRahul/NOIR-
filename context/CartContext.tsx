@@ -76,7 +76,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       {
         id: "noir-72",
         name: "Noir 72% Grand Cru",
-        price: 24,
+        price: 1850,
         cacao: "72%",
         weight: "100g",
         image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=1000&auto=format&fit=crop",

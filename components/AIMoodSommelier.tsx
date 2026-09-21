@@ -62,7 +62,7 @@ export default function AIMoodSommelier() {
   };
 
   return (
-    <section className="py-28 px-6 md:px-12 bg-dark-choc/80 relative overflow-hidden border-y border-champagne/10">
+    <section id="mood" className="py-28 px-6 md:px-12 bg-dark-choc/80 relative overflow-hidden border-y border-champagne/10">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
@@ -73,7 +73,7 @@ export default function AIMoodSommelier() {
             className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-champagne/20 bg-espresso text-caramel text-[10px] uppercase tracking-[0.3em] font-semibold"
           >
             <Sparkles className="w-3.5 h-3.5 text-caramel" />
-            <span>Gemini AI Powered Sensory Engine</span>
+            <span>Maison Sensory Engine</span>
           </motion.div>
 
           <motion.h2
@@ -93,7 +93,7 @@ export default function AIMoodSommelier() {
             transition={{ delay: 0.2 }}
             className="font-serif text-lg text-cream/70 italic max-w-md mx-auto"
           >
-            Allow Gemini AI to analyze your current state and formulate your bespoke chocolate pairing.
+            Allow Maison AI to analyze your current state and formulate your bespoke chocolate pairing.
           </motion.p>
         </div>
 
@@ -180,12 +180,12 @@ export default function AIMoodSommelier() {
               {isLoading ? (
                 <>
                   <RefreshCw className="w-4 h-4 animate-spin" />
-                  <span>Gemini AI Profiling Sensations...</span>
+                  <span>Analyzing Sensation Profile...</span>
                 </>
               ) : (
                 <>
                   <Sparkles className="w-4 h-4" />
-                  <span>ANALYZE WITH GEMINI AI</span>
+                  <span>ANALYZE SENSORY PROFILE</span>
                 </>
               )}
             </button>
@@ -199,7 +199,7 @@ export default function AIMoodSommelier() {
                   <CheckCircle2 className="w-4 h-4 text-champagne" /> AI Sensory Prescription
                 </span>
                 <span className="text-[10px] text-cream/40 uppercase tracking-widest">
-                  Model: {process.env.NEXT_PUBLIC_GEMINI_MODEL || "gemini-2.5-flash"}
+                  Maison Intelligence v2.5
                 </span>
               </div>
 
@@ -207,7 +207,7 @@ export default function AIMoodSommelier() {
                 <div className="py-20 text-center space-y-4">
                   <RefreshCw className="w-8 h-8 text-champagne animate-spin mx-auto" />
                   <p className="font-serif text-lg text-cream/70 italic">
-                    Consulting Gemini AI neural Sommelier...
+                    Consulting Master Sommelier...
                   </p>
                 </div>
               ) : aiResult ? (
@@ -220,7 +220,7 @@ export default function AIMoodSommelier() {
                 <div className="py-20 text-center space-y-4">
                   <Sparkles className="w-10 h-10 text-champagne/30 mx-auto" />
                   <p className="font-serif text-xl text-cream/50 italic">
-                    Select your mood & beverage to unlock your AI personalized chocolate prescription.
+                    Select your mood & beverage to unlock your personalized chocolate prescription.
                   </p>
                 </div>
               )}
@@ -228,7 +228,7 @@ export default function AIMoodSommelier() {
 
             {aiResult && (
               <div className="pt-6 border-t border-champagne/10 flex justify-between items-center">
-                <span className="text-xs text-cream/50 italic">Formulated live by Gemini AI</span>
+                <span className="text-xs text-cream/50 italic">Formulated live by Maison Sommelier</span>
                 <a
                   href="#collection"
                   className="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-champagne hover:text-cream transition-colors"

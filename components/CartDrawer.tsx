@@ -9,9 +9,10 @@ import Image from "next/image";
 export default function CartDrawer() {
   const { items, isOpen, closeCart, removeFromCart, updateQuantity, subtotal, user, openAuthModal, openCheckout } = useCart();
 
-  const freeShippingThreshold = 80;
+  const freeShippingThreshold = 4000;
   const progress = Math.min(100, (subtotal / freeShippingThreshold) * 100);
   const remainingForFreeShipping = freeShippingThreshold - subtotal;
+  const shippingFee = remainingForFreeShipping <= 0 ? 0 : 350;
 
   const handleCheckoutClick = () => {
     closeCart();
@@ -65,11 +66,11 @@ export default function CartDrawer() {
                 <div className="flex justify-between text-xs font-light text-cream/80 mb-1.5">
                   {remainingForFreeShipping > 0 ? (
                     <span>
-                      Add <strong className="text-champagne">${remainingForFreeShipping.toFixed(2)}</strong> more for Complimentary Packaging
+                      Add <strong className="text-champagne">₹{remainingForFreeShipping.toLocaleString("en-IN")}</strong> more for Complimentary Packaging
                     </span>
                   ) : (
                     <span className="text-champagne font-medium flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5 inline" /> Complimentary Luxury Shipping Unlocked
+                      <CheckCircle2 className="w-3.5 h-3.5 inline" /> Complimentary Express Delivery Unlocked
                     </span>
                   )}
                 </div>
@@ -161,7 +162,7 @@ export default function CartDrawer() {
                           </button>
                         </div>
                         <span className="font-serif text-lg text-champagne font-medium">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹{(item.price * item.quantity).toLocaleString("en-IN")}
                         </span>
                       </div>
                     </div>
@@ -176,7 +177,7 @@ export default function CartDrawer() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-xs text-cream/60">
                     <span>Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                    <span>₹{subtotal.toLocaleString("en-IN")}</span>
                   </div>
                   <div className="flex justify-between text-xs text-cream/60">
                     <span>Luxury Gift Packaging</span>
@@ -184,12 +185,12 @@ export default function CartDrawer() {
                   </div>
                   <div className="flex justify-between text-xs text-cream/60">
                     <span>Express Chilled Delivery</span>
-                    <span>$12.00</span>
+                    <span>{shippingFee === 0 ? "FREE" : `₹${shippingFee}`}</span>
                   </div>
                   <div className="border-t border-champagne/10 pt-2 flex justify-between items-baseline">
                     <span className="font-serif text-lg text-cream">Total</span>
                     <span className="font-serif text-2xl text-champagne">
-                      ${(subtotal + 12).toFixed(2)}
+                      ₹{(subtotal + shippingFee).toLocaleString("en-IN")}
                     </span>
                   </div>
                 </div>

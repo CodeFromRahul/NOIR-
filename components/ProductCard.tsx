@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Plus, Eye, Utensils } from "lucide-react";
+import { Plus, Eye, Utensils, Compass } from "lucide-react";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import { useCursor } from "@/context/CursorContext";
@@ -24,6 +24,12 @@ export interface Product {
     equipments: string[];
     temperatures: { melt: string; cool: string; work: string };
     steps: string[];
+  };
+  originStoryline?: {
+    harvestYear: string;
+    farmerCoop: string;
+    elevation: string;
+    narrative: string;
   };
 }
 
@@ -49,8 +55,8 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
         <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-caramel border border-caramel/30 bg-espresso/80 px-3 py-1 rounded-full backdrop-blur-md">
           {product.cacao} Cacao
         </span>
-        <span className="text-xs text-cream/50 tracking-wider font-light">
-          {product.origin}
+        <span className="text-xs text-cream/50 tracking-wider font-light flex items-center gap-1">
+          <Compass className="w-3 h-3 text-champagne/60" /> {product.origin}
         </span>
       </div>
 
@@ -79,7 +85,7 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
             className="w-full py-3 rounded-full bg-champagne/90 text-espresso font-medium text-xs uppercase tracking-[0.2em] shadow-lg flex items-center justify-center space-x-2 hover:bg-cream transition-colors"
           >
             <Eye className="w-4 h-4" />
-            <span>Recipe & Ingredients →</span>
+            <span>Storyline & Recipe →</span>
           </button>
         </div>
       </div>
@@ -94,7 +100,7 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
             {product.name}
           </h3>
           <span className="font-serif text-xl font-medium text-champagne ml-2">
-            ${product.price}
+            ₹{product.price.toLocaleString("en-IN")}
           </span>
         </div>
 
@@ -102,10 +108,10 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
           {product.desc}
         </p>
 
-        {/* Recipe Tag Indicator */}
+        {/* Storyline Indicator */}
         <div className="flex items-center space-x-1 text-[10px] text-caramel uppercase tracking-widest pt-1">
           <Utensils className="w-3 h-3 inline" />
-          <span>Includes Master Recipe & Ratios</span>
+          <span>Includes Terroir Storyline & Recipe</span>
         </div>
 
         {/* Tasting Notes Pills */}

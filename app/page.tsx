@@ -21,6 +21,7 @@ import CartDrawer from "@/components/CartDrawer";
 import ChocolatierChatbot from "@/components/ChocolatierChatbot";
 import AuthModal from "@/components/AuthModal";
 import CheckoutPortal from "@/components/CheckoutPortal";
+import QuickNavDock from "@/components/QuickNavDock";
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -51,13 +52,13 @@ export default function Home() {
       {/* Minimalist Ingredients Section */}
       <IngredientsSection />
 
-      {/* NEW GEMINI AI FEATURE 1: Maison Mood Sommelier & Sensory Engine */}
+      {/* GEMINI AI FEATURE 1: Maison Mood Sommelier & Sensory Engine */}
       <AIMoodSommelier />
 
       {/* Premium Brand Statement */}
       <BrandStatement />
 
-      {/* NEW GEMINI AI FEATURE 2: AI Gold Inscription & Packaging Story Engraver */}
+      {/* GEMINI AI FEATURE 2: AI Gold Inscription & Packaging Story Engraver */}
       <AIPackagingEngraver />
 
       {/* Testimonials */}
@@ -71,6 +72,9 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Quick Navigation Dock for Effortless Browsing */}
+      <QuickNavDock onOpenSearch={() => setSearchOpen(true)} />
 
       {/* Interactive Modals & Portals */}
       <ProductModal

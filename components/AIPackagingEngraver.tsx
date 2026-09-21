@@ -61,13 +61,13 @@ export default function AIPackagingEngraver() {
           <div className="lg:col-span-6 space-y-6">
             <div>
               <span className="text-[10px] uppercase tracking-[0.3em] text-caramel font-semibold flex items-center gap-1.5 mb-2">
-                <Feather className="w-3.5 h-3.5 text-champagne" /> AI Calligraphy Atelier
+                <Feather className="w-3.5 h-3.5 text-champagne" /> Calligraphy Atelier
               </span>
               <h3 className="font-serif text-3xl sm:text-4xl text-cream tracking-wide">
-                AI Custom Gold Inscription
+                Custom Gold Inscription
               </h3>
               <p className="text-xs text-cream/70 font-light mt-2 leading-relaxed">
-                Allow Gemini AI to compose a poetic gold-foil debossed story to be printed inside your luxury gift packaging.
+                Allow Maison Calligraphy AI to compose a poetic gold-foil debossed story to be printed inside your luxury gift packaging.
               </p>
             </div>
 
@@ -122,12 +122,12 @@ export default function AIPackagingEngraver() {
                 {isLoading ? (
                   <>
                     <RefreshCw className="w-4 h-4 animate-spin" />
-                    <span>Gemini AI Composing Inscription...</span>
+                    <span>Composing Custom Inscription...</span>
                   </>
                 ) : (
                   <>
                     <Sparkles className="w-4 h-4" />
-                    <span>Generate Inscription with Gemini AI</span>
+                    <span>Generate Custom Inscription</span>
                   </>
                 )}
               </button>
@@ -166,7 +166,7 @@ export default function AIPackagingEngraver() {
               ) : (
                 <div className="py-16 text-center space-y-2 text-cream/40 font-serif italic">
                   <Feather className="w-8 h-8 text-champagne/20 mx-auto mb-2" />
-                  <p>Your custom Gemini AI gold inscription story will appear here.</p>
+                  <p>Your custom gold inscription story will appear here.</p>
                 </div>
               )}
             </div>

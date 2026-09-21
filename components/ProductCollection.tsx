@@ -14,7 +14,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Noir 72% Grand Cru",
     category: "Dark Chocolate",
     cacao: "72%",
-    price: 24,
+    price: 1850,
     weight: "100g / 3.5oz",
     origin: "Chuao, Venezuela",
     desc: "Single-estate Criollo cacao with deep notes of dark cocoa, roasted almond, and smoked bourbon vanilla.",
@@ -27,6 +27,12 @@ export const PRODUCTS_DATA: Product[] = [
       "0.3% Ground Bourbon Vanilla Beans",
     ],
     allergens: "Made in a facility that handles tree nuts, dairy, and sesame.",
+    originStoryline: {
+      harvestYear: "2025 Reserve Harvest",
+      farmerCoop: "Chuao Agricultural Collective",
+      elevation: "450 meters above sea level",
+      narrative: "Chuao is widely regarded as the holy grail of cacao microclimates. Shielded by dense tropical rainforest on three sides and cooled by Caribbean sea salt spray, these heirloom Criollo pods are dried naturally on stone church plazas for 7 days under tropical sun, infusing each bar with legendary berry acidity and smoked almond notes.",
+    },
     homeRecipe: {
       equipments: ["Marble Slab", "Offset Spatula", "Digital Infrared Thermometer", "Double Boiler"],
       temperatures: { melt: "48°C / 118°F", cool: "27°C / 80°F", work: "31.5°C / 89°F" },
@@ -43,7 +49,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Sea Salt Caramel Velvet",
     category: "Praliné",
     cacao: "68%",
-    price: 26,
+    price: 1950,
     weight: "110g / 3.88oz",
     origin: "Brittany, France",
     desc: "Slow-cooked golden butter caramel infused with hand-harvested Fleur de Sel, wrapped in velvety cocoa.",
@@ -57,6 +63,12 @@ export const PRODUCTS_DATA: Product[] = [
       "0.5% Organic Vanilla Extract",
     ],
     allergens: "Contains Milk/Dairy. May contain traces of hazelnuts and almonds.",
+    originStoryline: {
+      harvestYear: "2026 Artisanal Batch",
+      farmerCoop: "Guérande Salt Masters & Breton Dairies",
+      elevation: "Coastal Atlantic Salt Marshes",
+      narrative: "In the misty salt marshes of Guérande, salt workers use wooden rakes to skim delicate Fleur de Sel crystals from evaporating Atlantic sea pools. Combined with slow-caramelized Breton cultured butter and 68% dark Venezuelan cocoa, this bar delivers an ethereal dance of sweet caramel warmth and crisp salt mineral crackle.",
+    },
     homeRecipe: {
       equipments: ["Heavy-Bottomed Copper Pot", "Candy Thermometer", "Chocolate Dip Fork"],
       temperatures: { melt: "45°C / 113°F", cool: "28°C / 82°F", work: "30°C / 86°F" },
@@ -72,7 +84,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Hazelnut Praliné Crisp",
     category: "Praliné",
     cacao: "64%",
-    price: 28,
+    price: 2100,
     weight: "120g / 4.2oz",
     origin: "Piedmont, Italy",
     desc: "Slow-roasted Piedmont IGP hazelnut praliné layered with caramelized wafer crunch and dark gianduja.",
@@ -85,6 +97,12 @@ export const PRODUCTS_DATA: Product[] = [
       "10.0% Clarified Brown Butter & Sugar",
     ],
     allergens: "Contains Tree Nuts (Hazelnuts) and Gluten (Wafer).",
+    originStoryline: {
+      harvestYear: "2025 Autumn Harvest",
+      farmerCoop: "Cortemilia Hazelnut Guild, Langhe",
+      elevation: "550 meters (Piedmont Hills)",
+      narrative: "Cultivated in the rolling misty hills of Langhe, Tonda Gentile delle Langhe hazelnuts are universally recognized as the finest in the world. Roasted over oak fires until their papery skins slide away, they are stone-refined into liquid gianduja praliné and layered with feuilletine wafer crunch.",
+    },
     homeRecipe: {
       equipments: ["Food Processor / Refiner", "Guitar Cutter", "Melting Bowl"],
       temperatures: { melt: "42°C / 107°F", cool: "26°C / 78°F", work: "29.5°C / 85°F" },
@@ -100,7 +118,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Madagascar 85% Reserve",
     category: "Single Origin",
     cacao: "85%",
-    price: 30,
+    price: 2250,
     weight: "100g / 3.5oz",
     origin: "Sambirano Valley, Madagascar",
     desc: "Rare high-altitude cacao with vibrant red berry acidity, plum accents, and a clean mahogany finish.",
@@ -112,6 +130,12 @@ export const PRODUCTS_DATA: Product[] = [
       "5.0% Organic Cane Sugar",
     ],
     allergens: "Vegan & Gluten-free. Produced on dedicated nut-free line.",
+    originStoryline: {
+      harvestYear: "2025 Solstice Micro-Lot",
+      farmerCoop: "Åkonjo Estate, Sambirano Valley",
+      elevation: "320 meters (Volcanic River Valley)",
+      narrative: "Nurtured by monsoon rains and mineral-rich volcanic soil along the Sambirano River, these high-acid red cacao pods ferment in wooden banana-leaf boxes for 6 days. The result is an explosive citrus and red raspberry top note that gives way to deep dark chocolate intensity without bitterness.",
+    },
     homeRecipe: {
       equipments: ["Conching Machine / Stone Melangeur", "Polycarbonate Bar Mold"],
       temperatures: { melt: "50°C / 122°F", cool: "28°C / 82°F", work: "32°C / 89°F" },
@@ -127,7 +151,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Pistachio Velvet Bar",
     category: "Single Origin",
     cacao: "65%",
-    price: 32,
+    price: 2400,
     weight: "115g / 4.0oz",
     origin: "Bronte, Sicily",
     desc: "Pure stone-ground Bronte pistachio butter folded into smooth single-origin Ecuadorian dark chocolate.",
@@ -141,6 +165,12 @@ export const PRODUCTS_DATA: Product[] = [
       "0.2% Maldon Sea Salt",
     ],
     allergens: "Contains Pistachios (Tree Nuts).",
+    originStoryline: {
+      harvestYear: "2025 Biennial Harvest",
+      farmerCoop: "Etna Pistachio Guild, Bronte",
+      elevation: "700 meters (Slope of Mount Etna)",
+      narrative: "Grown directly on the jagged black lava slopes of Mount Etna, Sicilian Bronte pistachios are harvested by hand only once every two years. Known as 'Green Gold', their emerald paste is stone-milled with single-origin Ecuadorian Arriba Nacional dark chocolate for an opulent velvet texture.",
+    },
     homeRecipe: {
       equipments: ["High-speed Stone Grinder", "Silicone Piping Bag"],
       temperatures: { melt: "45°C / 113°F", cool: "27°C / 80°F", work: "30.5°C / 87°F" },
@@ -156,7 +186,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Espresso Dark Infusion",
     category: "Dark Chocolate",
     cacao: "75%",
-    price: 25,
+    price: 1890,
     weight: "100g / 3.5oz",
     origin: "Yirgacheffe, Ethiopia",
     desc: "Single-origin washed Ethiopian Yirgacheffe coffee beans micro-ground directly with roasted dark cacao nibs.",
@@ -169,6 +199,12 @@ export const PRODUCTS_DATA: Product[] = [
       "2.0% Raw Cane Sugar",
     ],
     allergens: "Contains Caffeine. Vegan.",
+    originStoryline: {
+      harvestYear: "2026 Direct Harvest",
+      farmerCoop: "Yirgacheffe Smallholder Coffee Union",
+      elevation: "1,900 meters (Ethiopian Highlands)",
+      narrative: "Cultivated in the birthplace of Arabica coffee at nearly 2,000 meters altitude, Yirgacheffe beans are prized for their jasmine and bergamot aromas. Micro-milled directly alongside roasted dark cocoa nibs, this bar delivers a dark roasted espresso awakening followed by long dark cocoa warmth.",
+    },
     homeRecipe: {
       equipments: ["Burr Grinder", "Tempering Bowl"],
       temperatures: { melt: "49°C / 120°F", cool: "27.5°C / 81°F", work: "31°C / 88°F" },
@@ -184,7 +220,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Tahitian Vanilla Truffle",
     category: "Truffles",
     cacao: "38%",
-    price: 34,
+    price: 2550,
     weight: "140g / 4.9oz",
     origin: "Tahiti, French Polynesia",
     desc: "Silky 38% white cocoa butter truffle center infused with rare Tahitian vanilla caviar, dusted with crushed cocoa nibs.",
@@ -198,6 +234,12 @@ export const PRODUCTS_DATA: Product[] = [
       "0.5% Sea Salt",
     ],
     allergens: "Contains Milk/Dairy.",
+    originStoryline: {
+      harvestYear: "2025 Reserve Beans",
+      farmerCoop: "Raiatea Vanilla Orchards, Tahiti",
+      elevation: "Island Coastal Valleys",
+      narrative: "Tahitian Vanilla tahitensis pods are hand-pollinated and sun-cured over 9 months until fragrant with natural anise, cherry, and floral perfume. Infused into pure unrefined cocoa butter ganache, these truffles melt on the palate like silk before revealing crunchy dark cocoa nibs.",
+    },
     homeRecipe: {
       equipments: ["Melting Pan", "Melon Baller / Scoop", "Cocoa Powder Dredger"],
       temperatures: { melt: "40°C / 104°F", cool: "25°C / 77°F", work: "28.5°C / 83°F" },
@@ -213,7 +255,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Ruby Rose Petal Reserve",
     category: "Specialty",
     cacao: "47%",
-    price: 36,
+    price: 2700,
     weight: "105g / 3.7oz",
     origin: "Damascus & Brazil",
     desc: "Naturally pink Ruby cacao pod extract infused with organic Damask rose oil and crystallised rose petals.",
@@ -227,6 +269,12 @@ export const PRODUCTS_DATA: Product[] = [
       "0.5% Bulgarian Rose Essence",
     ],
     allergens: "Nut-free. Contains natural berry acids.",
+    originStoryline: {
+      harvestYear: "2026 Micro Harvest",
+      farmerCoop: "Bahia Organic Farm & Damask Rose Distillers",
+      elevation: "250 meters (Coastal Bahia)",
+      narrative: "Ruby cacao pods are unfermented beans naturally rich in ruby polyphenols. Blended with steam-distilled Damask rose petal essence from Syria and topped with hand-crystallized organic rose petals, this bar offers a magical interplay of tart wild berry notes and intoxicating floral aroma.",
+    },
     homeRecipe: {
       equipments: ["Thermometer", "Decorating Tweezers"],
       temperatures: { melt: "44°C / 111°F", cool: "26.5°C / 79°F", work: "29°C / 84°F" },
@@ -242,7 +290,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Oak Smoked Almond Dark",
     category: "Dark Chocolate",
     cacao: "70%",
-    price: 27,
+    price: 2050,
     weight: "115g / 4.0oz",
     origin: "Valencia, Spain",
     desc: "Spanish Marcona almonds cold-smoked over bourbon oak casks, embedded in 70% dark Spanish cacao.",
@@ -256,6 +304,12 @@ export const PRODUCTS_DATA: Product[] = [
       "0.2% Smoked Oak Sea Salt",
     ],
     allergens: "Contains Almonds (Tree Nuts).",
+    originStoryline: {
+      harvestYear: "2025 Oak Smoked Batch",
+      farmerCoop: "Alicante Almond Orchards & Jerez Cooperage",
+      elevation: "Mediterranean Coastal Foothills",
+      narrative: "Marcona almonds—the 'Queen of Almonds'—are renowned for their round plump shape and buttery sweetness. Cold-smoked over charred bourbon oak casks from Jerez for 45 minutes, they are nestled into 70% dark Spanish cocoa for a savory, smoky dark chocolate masterpiece.",
+    },
     homeRecipe: {
       equipments: ["Cold Smoker / Smoking Gun", "Roasting Tray"],
       temperatures: { melt: "48°C / 118°F", cool: "27°C / 80°F", work: "31°C / 88°F" },
@@ -271,7 +325,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Earl Grey Bergamot Bar",
     category: "Single Origin",
     cacao: "66%",
-    price: 29,
+    price: 2200,
     weight: "100g / 3.5oz",
     origin: "Calabria, Italy & Ceylon",
     desc: "Single-origin Ceylon black tea and wild Calabrian bergamot oil steeped into silky dark ganache.",
@@ -285,6 +339,12 @@ export const PRODUCTS_DATA: Product[] = [
       "0.5% Cold-Pressed Bergamot Peel Oil",
     ],
     allergens: "Vegan. Gluten-free.",
+    originStoryline: {
+      harvestYear: "2026 First-Flush Harvest",
+      farmerCoop: "Reggio Calabria Citrus Guild & Nuwara Eliya Tea Estates",
+      elevation: "1,800 meters (Sri Lankan Highlands)",
+      narrative: "Washed Calabrian bergamot oranges are hand-scraped for pure aromatic citrus essential oil, then combined with high-altitude first-flush Ceylon black tea. Infused into single-origin 66% dark cocoa butter, it yields a sophisticated, aromatic citrus tea chocolate experience.",
+    },
     homeRecipe: {
       equipments: ["Fine Mesh Strainer", "Saucepan"],
       temperatures: { melt: "46°C / 115°F", cool: "27°C / 80°F", work: "30.5°C / 87°F" },
@@ -300,7 +360,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Uji Matcha White Velvet",
     category: "Specialty",
     cacao: "40%",
-    price: 33,
+    price: 2480,
     weight: "110g / 3.88oz",
     origin: "Kyoto, Japan",
     desc: "Ceremonial grade A Uji Matcha stone-ground into pure cocoa butter with toasted puffed rice crunch.",
@@ -314,6 +374,12 @@ export const PRODUCTS_DATA: Product[] = [
       "5.0% Sugar",
     ],
     allergens: "Contains Milk. May contain gluten from puffed rice.",
+    originStoryline: {
+      harvestYear: "2025 First-Harvest Spring Tencha",
+      farmerCoop: "Uji Tea Masters, Kyoto Prefecture",
+      elevation: "300 meters (Uji River Basin)",
+      narrative: "Shade-grown under straw mats for 30 days before spring harvest, tencha tea leaves are ground by granite millstones at a rate of just 40 grams per hour into vivid emerald ceremonial matcha. Combined with cocoa butter and puffed genmai toasted rice, it produces a creamy umami sweetness with satisfying crunch.",
+    },
     homeRecipe: {
       equipments: ["Bamboo Whisk (Chasen)", "Conch Bowl"],
       temperatures: { melt: "42°C / 107°F", cool: "26°C / 78°F", work: "29°C / 84°F" },
@@ -329,7 +395,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: "Passionfruit Caramel Noir",
     category: "Praliné",
     cacao: "71%",
-    price: 35,
+    price: 2650,
     weight: "125g / 4.4oz",
     origin: "Ecuador & Peru",
     desc: "Tart Amazonian passionfruit caramel liquid center enclosed in a 71% Ecuadorian dark chocolate shell.",
@@ -343,6 +409,12 @@ export const PRODUCTS_DATA: Product[] = [
       "0.2% Lime Zest",
     ],
     allergens: "Vegan. Gluten-free.",
+    originStoryline: {
+      harvestYear: "2026 Wild Rainforest Harvest",
+      farmerCoop: "Puyo Passionfruit Farmers, Pastaza",
+      elevation: "Amazonian Foothills",
+      narrative: "Wild Amazonian yellow passionfruit is hand-scooped in the Pastaza basin and reduced into a tart golden caramel syrup. Encased in a thin tempered shell of 71% Ecuadorian dark chocolate, biting into this bar unleashes an explosion of tropical fruit brightness followed by deep cocoa richness.",
+    },
     homeRecipe: {
       equipments: ["Pastry Piping Bag", "Polycarbonate Sphere Molds"],
       temperatures: { melt: "48°C / 118°F", cool: "27°C / 80°F", work: "31°C / 88°F" },
@@ -395,7 +467,7 @@ export default function ProductCollection({ onOpenDetails }: ProductCollectionPr
           transition={{ delay: 0.2 }}
           className="font-serif text-lg sm:text-xl text-cream/70 italic font-light max-w-md mx-auto"
         >
-          “Chocolate crafted for slow moments. Every creation includes complete ingredient ratios & home recipes.”
+          “Chocolate crafted for slow moments. Every creation includes complete terroir storylines, ingredient ratios & home recipes.”
         </motion.p>
 
         {/* Filter Tabs */}

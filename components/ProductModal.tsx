@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Plus, Minus, ShoppingBag, Sparkles, Check, Utensils, Thermometer, ShieldAlert, BookOpen } from "lucide-react";
+import { X, Plus, Minus, ShoppingBag, Sparkles, Check, Utensils, Thermometer, ShieldAlert, BookOpen, Compass, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Product } from "./ProductCard";
 import { useCart } from "@/context/CartContext";
@@ -15,7 +15,7 @@ interface ProductModalProps {
 export default function ProductModal({ product, onClose }: ProductModalProps) {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
-  const [activeTab, setActiveTab] = useState<"details" | "ingredients" | "recipe">("details");
+  const [activeTab, setActiveTab] = useState<"details" | "storyline" | "ingredients" | "recipe">("details");
   const { addToCart } = useCart();
 
   if (!product) return null;
@@ -92,7 +92,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               </h2>
 
               {/* Detail Tabs Header */}
-              <div className="flex border-b border-champagne/10 gap-4 mb-4">
+              <div className="flex flex-wrap border-b border-champagne/10 gap-3 sm:gap-4 mb-4">
                 <button
                   onClick={() => setActiveTab("details")}
                   className={`pb-2 text-xs uppercase tracking-widest font-medium transition-colors border-b-2 ${
@@ -102,6 +102,16 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                   }`}
                 >
                   Overview
+                </button>
+                <button
+                  onClick={() => setActiveTab("storyline")}
+                  className={`pb-2 text-xs uppercase tracking-widest font-medium transition-colors border-b-2 ${
+                    activeTab === "storyline"
+                      ? "border-champagne text-champagne"
+                      : "border-transparent text-cream/50 hover:text-cream"
+                  }`}
+                >
+                  Terroir Storyline
                 </button>
                 <button
                   onClick={() => setActiveTab("ingredients")}
@@ -151,7 +161,38 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 </div>
               )}
 
-              {/* Tab Content 2: Ingredients */}
+              {/* Tab Content 2: Terroir Storyline */}
+              {activeTab === "storyline" && product.originStoryline && (
+                <div className="space-y-4">
+                  <div className="bg-dark-choc/80 rounded-2xl p-4 border border-champagne/10 space-y-3">
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-champagne font-medium flex items-center gap-1.5">
+                      <Compass className="w-3.5 h-3.5 text-caramel" />
+                      Cacao Origin Odyssey & Heritage
+                    </span>
+
+                    <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                      <div className="bg-espresso p-2 rounded-lg border border-champagne/10">
+                        <span className="text-[9px] uppercase tracking-wider text-cream/40 block">Harvest</span>
+                        <span className="text-caramel font-semibold">{product.originStoryline.harvestYear}</span>
+                      </div>
+                      <div className="bg-espresso p-2 rounded-lg border border-champagne/10">
+                        <span className="text-[9px] uppercase tracking-wider text-cream/40 block">Elevation</span>
+                        <span className="text-caramel font-semibold">{product.originStoryline.elevation}</span>
+                      </div>
+                      <div className="bg-espresso p-2 rounded-lg border border-champagne/10">
+                        <span className="text-[9px] uppercase tracking-wider text-cream/40 block">Origin Guild</span>
+                        <span className="text-champagne font-semibold text-[10px]">{product.originStoryline.farmerCoop}</span>
+                      </div>
+                    </div>
+
+                    <p className="font-serif text-sm text-cream/90 leading-relaxed italic pt-2">
+                      “{product.originStoryline.narrative}”
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Tab Content 3: Ingredients */}
               {activeTab === "ingredients" && (
                 <div className="space-y-4">
                   <div className="bg-dark-choc/80 rounded-2xl p-4 border border-champagne/10 space-y-2">
@@ -178,7 +219,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 </div>
               )}
 
-              {/* Tab Content 3: Home Master Recipe */}
+              {/* Tab Content 4: Home Master Recipe */}
               {activeTab === "recipe" && product.homeRecipe && (
                 <div className="space-y-4">
                   <div className="bg-dark-choc/90 rounded-2xl p-4 border border-champagne/10 space-y-3">
@@ -232,7 +273,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     Total Price
                   </span>
                   <span className="font-serif text-3xl text-champagne">
-                    ${(product.price * quantity).toFixed(2)}
+                    ₹{(product.price * quantity).toLocaleString("en-IN")}
                   </span>
                 </div>
 
@@ -274,7 +315,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               ) : (
                 <>
                   <ShoppingBag className="w-4 h-4" />
-                  <span>ADD TO BAG · ${(product.price * quantity).toFixed(2)}</span>
+                  <span>ADD TO BAG · ₹{(product.price * quantity).toLocaleString("en-IN")}</span>
                 </>
               )}
             </button>

@@ -198,7 +198,7 @@ export default function SearchModal({ isOpen, onClose, onSelectProduct }: Search
 
                     <div className="flex justify-between items-center mt-3 pt-2 border-t border-champagne/10">
                       <span className="font-serif text-cream font-medium">
-                        ${item.price}
+                        ₹{item.price.toLocaleString("en-IN")}
                       </span>
                       <button
                         onClick={(e) => {
